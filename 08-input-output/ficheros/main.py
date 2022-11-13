@@ -1,8 +1,9 @@
-path = "C:\\Users\\gwfer\dev\\training\\open-bootcamp\\intro-python\\08-input-output\\ficheros\\"
+from os import path
+
+directoryPath = path.dirname(path.realpath(__file__))
 
 def getUsers():
-    global path
-    file = open(path + "email.csv", "r")
+    file = open(directoryPath + "\\email.csv", "r")
     lines = file.readlines()
     file.close()
 
@@ -15,7 +16,7 @@ def getUsers():
     return users
 
 def saveUsers(users) -> None:
-    file = open(path + "users.csv", "w")
+    file = open(directoryPath + "\\users.csv", "w")
     for index, user in enumerate(users, start=1):
         file.write(user+"\n")
     file.close()

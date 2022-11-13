@@ -1,17 +1,17 @@
-from os.path import exists
+from os import path
 from datetime import datetime
 import time
 
-path = "C:\\Users\\gwfer\dev\\training\\open-bootcamp\\intro-python\\08-input-output\\ejercicio-1\\"
 
 def main():
     print("iniciando ejercicio 1: files")
+    directoryPath = path.dirname(path.realpath(__file__))
 
     fileName = "archivo.txt"
-    fullPath = f"{path}{fileName}"
+    fullPath = f"{directoryPath}\\{fileName}"
     file = None
 
-    if not exists(fullPath):
+    if not path.exists(fullPath):
         file = open(fullPath, "x")
         print(f"archivo {fileName} creado")
         file.close()
